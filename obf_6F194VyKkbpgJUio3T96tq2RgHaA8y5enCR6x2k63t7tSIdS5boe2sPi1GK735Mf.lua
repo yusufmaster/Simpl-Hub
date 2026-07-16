@@ -540,23 +540,25 @@ function SimplUI:CreateWindow(opts)
 	-- matches the red→green→blue→gold brand mark. Set opts.Logo=false to hide it.
 	local titleX = 12
 	if opts.Logo ~= false then
+		-- identical to the startup-screen logo: Bodoni serif "S" with the four Windows-
+		-- flag colours in HARD quarters (not a smooth blend), so it matches the boot mark.
 		New("TextLabel", {
 			Name = "Logo", BackgroundTransparency = 1, AnchorPoint = Vector2.new(0, 0.5),
-			Position = UDim2.new(0, 9, 0.5, 0), Size = UDim2.new(0, 20, 0, 22),
-			Font = Enum.Font.GothamBold, TextSize = 22, TextColor3 = Color3.fromRGB(255, 255, 255),
+			Position = UDim2.new(0, 8, 0.5, 0), Size = UDim2.new(0, 24, 0, 28),
+			Font = Enum.Font.Bodoni, TextSize = 28, TextColor3 = Color3.fromRGB(255, 255, 255),
 			Text = "S", ZIndex = 5, Parent = titleBar, Meta = { keepText = true },
 		}, {
 			New("UIGradient", {
 				Rotation = 90,
 				Color = ColorSequence.new({
-					ColorSequenceKeypoint.new(0.00, Color3.fromRGB(230, 72, 42)),
-					ColorSequenceKeypoint.new(0.34, Color3.fromRGB(122, 190, 38)),
-					ColorSequenceKeypoint.new(0.63, Color3.fromRGB(30, 160, 222)),
-					ColorSequenceKeypoint.new(1.00, Color3.fromRGB(222, 162, 30)),
+					ColorSequenceKeypoint.new(0.00, Color3.fromRGB(242, 80, 34)),  ColorSequenceKeypoint.new(0.375, Color3.fromRGB(242, 80, 34)),
+					ColorSequenceKeypoint.new(0.376, Color3.fromRGB(127, 186, 0)), ColorSequenceKeypoint.new(0.499, Color3.fromRGB(127, 186, 0)),
+					ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 164, 239)),  ColorSequenceKeypoint.new(0.624, Color3.fromRGB(0, 164, 239)),
+					ColorSequenceKeypoint.new(0.625, Color3.fromRGB(255, 185, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 185, 0)),
 				}),
 			}),
 		})
-		titleX = 34   -- shove the title text right so it clears the logo
+		titleX = 36   -- shove the title text right so it clears the logo
 	end
 
 	New("TextLabel", {
